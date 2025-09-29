@@ -5,65 +5,83 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Md Tahmid Islam - Portfolio</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Header -->
-  <header class="header">
-    <h1>Md Tahmid Islam</h1>
-    <p>Software Engineer | AI & ML Researcher</p>
-    <div class="links">
-      <a href="mailto:muhammad.tahmid.islam@gmail.com">Email</a> |
-      <a href="https://linkedin.com/in/tahmid-islam" target="_blank">LinkedIn</a> |
-      <a href="https://github.com/tahmid1234" target="_blank">GitHub</a>
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="overlay">
+      <h1>Md Tahmid Islam</h1>
+      <p>Software Engineer · AI & ML Researcher</p>
+      <div class="links">
+        <a href="mailto:muhammad.tahmid.islam@gmail.com">Email</a>
+        <a href="https://linkedin.com/in/tahmid-islam" target="_blank">LinkedIn</a>
+        <a href="https://github.com/tahmid1234" target="_blank">GitHub</a>
+      </div>
     </div>
   </header>
 
   <!-- Summary -->
-  <section class="summary">
-    <h2>Summary</h2>
+  <section class="section">
+    <h2>About Me</h2>
     <p>
-      Software engineer with a strong foundation in backend development, database design, and
-      hands-on experience in deep learning and language models for biological sequences.
-      Experienced in leading development teams and building AI-driven solutions.
+      I’m a software engineer with expertise in backend development, cloud infrastructure, and
+      AI-driven research. My current work explores deep learning models for biological sequences,
+      bridging engineering and research to build impactful intelligent systems.
     </p>
   </section>
 
   <!-- Experience -->
-  <section class="experience">
+  <section class="section">
     <h2>Experience</h2>
-    <div class="job">
-      <h3>Graduate Research Assistant — NDSU, Fargo, ND <span>(2025 - Present)</span></h3>
-      <ul>
-        <li>Developed a ProtBERT variant for protein function prediction (↑29.6% F1, ↑31.1% AUPRC).</li>
-        <li>Pretrained T5 models on biological sequences for downstream tasks.</li>
-        <li>Fine-tuned DNA-BERT, GPN, PlantCadusue/Mamba for sequence classification.</li>
-      </ul>
-    </div>
-    <div class="job">
-      <h3>Backend Software Engineer — EVQ Labs, Dubai, UAE (Remote) <span>(2021 - 2024)</span></h3>
-      <ul>
-        <li>Led a development team and managed AWS-based backend architecture.</li>
-        <li>Built on-chain decentralized applications and a Discord bot.</li>
-      </ul>
+    <div class="cards">
+      <div class="card">
+        <h3>Graduate Research Assistant</h3>
+        <p class="meta">NDSU · Jan 2025 – Present</p>
+        <ul>
+          <li>Developed ProtBERT variant for protein function prediction (↑29.6% F1, ↑31.1% AUPRC).</li>
+          <li>Pretrained T5 models on biological sequences for downstream tasks.</li>
+          <li>Adapted DNA-BERT, GPN, and Mamba for plant DNA classification.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Backend Software Engineer</h3>
+        <p class="meta">EVQ Labs · 2021 – 2024</p>
+        <ul>
+          <li>Led a dev team, delivering features on AWS (Lambda, EC2, RDS).</li>
+          <li>Built decentralized apps and automation tools (Discord bot).</li>
+        </ul>
+      </div>
     </div>
   </section>
 
   <!-- Skills -->
-  <section class="skills">
-    <h2>Skills</h2>
-    <p>Python | PyTorch | Transformers | Hugging Face | AWS | PostgreSQL</p>
+  <section class="section">
+    <h2>Technical Skills</h2>
+    <div class="tags">
+      <span>Python</span><span>PyTorch</span><span>Transformers</span>
+      <span>Hugging Face</span><span>AWS</span><span>PostgreSQL</span>
+    </div>
   </section>
 
   <!-- Education -->
-  <section class="education">
+  <section class="section">
     <h2>Education</h2>
-    <p><b>North Dakota State University</b> — MS in Computer Science (2025 - Present, expected 2026)</p>
-    <p><b>Islamic University of Technology</b> — BSc in Software Engineering, First Class with Honors (2022)</p>
+    <div class="cards">
+      <div class="card">
+        <h3>North Dakota State University</h3>
+        <p>MS in Computer Science (Expected 2026)</p>
+      </div>
+      <div class="card">
+        <h3>Islamic University of Technology</h3>
+        <p>BSc in Software Engineering (First Class with Honors, 2022)</p>
+      </div>
+    </div>
   </section>
 
   <!-- Footer -->
   <footer>
-    <p>© 2025 Md Tahmid Islam | Built with HTML & CSS</p>
+    <p>© 2025 Md Tahmid Islam</p>
   </footer>
 </body>
 </html>
