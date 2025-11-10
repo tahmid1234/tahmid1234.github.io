@@ -9,14 +9,16 @@ body {
 
 /* Hero Section */
 .hero {
-  height: 90vh; /* smaller than 100vh to reduce blank space */
+  height: auto; /* make height flexible instead of fixed vh */
+  min-height: 60vh; /* ensures it's still visually big */
+  padding: 4rem 1rem; /* adds spacing inside hero */
   background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   color: #fff;
-  position: relative;
+  flex-direction: column;
 }
 .hero .overlay {
   padding: 1.5rem;
@@ -41,8 +43,8 @@ body {
 /* Section */
 .section {
   max-width: 900px;
-  margin: 3rem auto;
-  padding: 1.5rem;
+  margin: 2rem auto; /* reduce margin-top */
+  padding: 1rem 1.5rem;
 }
 .section h2 {
   font-size: 1.8rem;
@@ -55,8 +57,9 @@ body {
 /* Cards */
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem;
+  align-items: start; /* prevents stretching */
 }
 .card {
   background: #fff;
