@@ -10,30 +10,45 @@ body {
 /* Hero Section */
 .hero {
   height: 100vh;
-  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   color: #fff;
+  position: relative;
 }
-.hero h1 { font-size: 3rem; font-weight: 800; }
-.hero p { margin: 1rem 0; font-size: 1.3rem; }
+.hero .overlay {
+  padding: 2rem;
+}
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+}
+.hero p {
+  margin: 1rem 0;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
 .hero .links a {
   margin: 0 10px;
-  padding: 0.5rem 1rem;
+  padding: 0.6rem 1.2rem;
   background: #61dafb;
   color: #000;
   border-radius: 6px;
   text-decoration: none;
   font-weight: 600;
+  transition: 0.2s;
 }
-.hero .links a:hover { background: #4dbfe0; }
+.hero .links a:hover {
+  background: #4dbfe0;
+  transform: translateY(-2px);
+}
 
 /* Section */
 .section {
   max-width: 900px;
-  margin: 3rem auto;
+  margin: 4rem auto;
   padding: 1.5rem;
 }
 .section h2 {
@@ -41,6 +56,7 @@ body {
   border-bottom: 2px solid #61dafb;
   display: inline-block;
   margin-bottom: 1rem;
+  font-weight: 700;
 }
 
 /* Cards */
@@ -53,10 +69,34 @@ body {
   background: #fff;
   padding: 1.5rem;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease;
 }
-.card h3 { margin-bottom: 0.5rem; }
-.card .meta { font-size: 0.9rem; color: #666; margin-bottom: 0.8rem; }
+.card:hover {
+  transform: translateY(-5px);
+}
+.card h3 {
+  margin-bottom: 0.5rem;
+  color: #111;
+}
+.card .meta {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0.8rem;
+}
+.card ul {
+  margin-left: 1.2rem;
+}
+.card a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: #0366d6;
+  text-decoration: none;
+  font-weight: 600;
+}
+.card a:hover {
+  text-decoration: underline;
+}
 
 /* Tags */
 .tags {
@@ -72,10 +112,26 @@ body {
   font-size: 0.9rem;
 }
 
+/* Project Images */
+.project-image {
+  margin-top: 1rem;
+  text-align: center;
+}
+.project-image img {
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+  transition: transform 0.2s ease;
+}
+.project-image img:hover {
+  transform: scale(1.03);
+}
+
 /* Footer */
 footer {
   text-align: center;
   padding: 1.5rem;
   background: #203a43;
   color: #fff;
+  font-size: 0.95rem;
 }
