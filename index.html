@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Md Tahmid Islam - Portfolio</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Md Tahmid Islam - NLP & AI Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <meta name="description" content="Portfolio of Md Tahmid Islam — Software Engineer and AI Researcher specializing in NLP, Deep Learning, and Backend Systems. Seeking Summer 2025 NLP Internship in the USA.">
 </head>
 <body>
+
   <!-- Hero Section -->
   <header class="hero">
     <div class="overlay">
       <h1>Md Tahmid Islam</h1>
-      <p>Software Engineer · AI & ML Researcher</p>
+      <p>Software Engineer · NLP & AI Researcher</p>
       <div class="links">
         <a href="mailto:muhammad.tahmid.islam@gmail.com">Email</a>
         <a href="https://linkedin.com/in/tahmid-islam" target="_blank">LinkedIn</a>
@@ -21,13 +24,16 @@
     </div>
   </header>
 
-  <!-- Summary -->
+  <!-- About -->
   <section class="section">
     <h2>About Me</h2>
     <p>
-      I’m a software engineer with expertise in backend development, cloud infrastructure, and
-      AI-driven research. My current work explores deep learning models for biological sequences,
-      bridging engineering and research to build impactful intelligent systems.
+      I’m a graduate student at <b>North Dakota State University</b> passionate about building 
+      intelligent systems that connect deep learning with real-world applications. 
+      I have hands-on experience in <b>protein language modeling</b>, 
+      <b>sequence translation</b>, and <b>retrieval-augmented generation (RAG)</b>.
+      Previously, I led backend engineering at EVQ Labs, developing scalable cloud and Web3 solutions.
+      I’m now seeking a <b>Summer 2025 NLP internship</b> to continue bridging research and software engineering.
     </p>
   </section>
 
@@ -37,30 +43,75 @@
     <div class="cards">
       <div class="card">
         <h3>Graduate Research Assistant</h3>
-        <p class="meta">NDSU · Jan 2025 – Present</p>
+        <p class="meta">North Dakota State University · Jan 2025 – Present</p>
         <ul>
-          <li>Developed ProtBERT variant for protein function prediction (↑29.6% F1, ↑31.1% AUPRC).</li>
-          <li>Pretrained T5 models on biological sequences for downstream tasks.</li>
-          <li>Adapted DNA-BERT, GPN, and Mamba for plant DNA classification.</li>
+          <li>Developed a ProtBERT variant for protein function prediction (↑29.6% F1, ↑31.1% AUPRC).</li>
+          <li>Pretrained T5 models on biological sequences for translation-based tasks.</li>
+          <li>Fine-tuned DNA-BERT, GPN, and Mamba for plant DNA classification.</li>
         </ul>
       </div>
+
       <div class="card">
         <h3>Backend Software Engineer</h3>
         <p class="meta">EVQ Labs · 2021 – 2024</p>
         <ul>
-          <li>Led a dev team, delivering features on AWS (Lambda, EC2, RDS).</li>
-          <li>Built decentralized apps and automation tools (Discord bot).</li>
+          <li>Led backend team, designing and deploying AWS architecture (Lambda, EC2, RDS for PostgreSQL).</li>
+          <li>Developed decentralized apps, RAG tools, and Telegram bots for Web3 engagement.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Software Developer Intern</h3>
+        <p class="meta">SELISE · Feb – Jul 2022</p>
+        <ul>
+          <li>Built automated testing frameworks that improved coverage and reduced manual QA effort.</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- Skills -->
+  <!-- Technical Skills -->
   <section class="section">
     <h2>Technical Skills</h2>
     <div class="tags">
       <span>Python</span><span>PyTorch</span><span>Transformers</span>
-      <span>Hugging Face</span><span>AWS</span><span>PostgreSQL</span>
+      <span>LangChain</span><span>Hugging Face</span><span>OpenAI SDK</span>
+      <span>GenAI SDK</span><span>Litellm</span><span>AWS (Lambda, EC2, RDS)</span>
+      <span>PostgreSQL</span><span>Deep Learning</span><span>LLMs</span>
+      <span>Few-Shot Learning</span><span>RAG Systems</span>
+    </div>
+  </section>
+
+  <!-- Fun Projects -->
+  <section class="section">
+    <h2>Fun Projects</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Argumentative vs Polite Chatbots</h3>
+        <p>
+          A fun conversational experiment using <b>LangChain</b> to connect
+          <b>Gemini (Flash 2.5)</b> and <b>DeepSeek-R1</b> with opposing personalities.
+          Gemini argues snarkily while DeepSeek stays calm and polite.
+        </p>
+        <p><b>Tech:</b> LangChain · Hugging Face · OpenAI API</p>
+        <a href="https://github.com/tahmid1234/argumentative-chatbots" target="_blank">View Code</a>
+        <div class="project-image">
+          <img src="images/chatbots.png" alt="Chatbot Conversation Screenshot">
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Battle Between LLMs (Tic-Tac-Toe)</h3>
+        <p>
+          A <b>Streamlit</b> game where <b>Gemini-flash-2.5</b> and <b>Llama-3.1</b> 
+          play Tic-Tac-Toe against each other in real time using <b>GenAI</b> and <b>HF InferenceClient</b>.
+        </p>
+        <p><b>Tech:</b> Streamlit · OpenAI SDK · Hugging Face</p>
+        <a href="https://github.com/tahmid1234/llm-battle-tictactoe" target="_blank">View Code</a>
+        <div class="project-image">
+          <img src="images/tictactoe.png" alt="Tic Tac Toe LLM Game Screenshot">
+        </div>
+      </div>
     </div>
   </section>
 
@@ -81,7 +132,8 @@
 
   <!-- Footer -->
   <footer>
-    <p>© 2025 Md Tahmid Islam</p>
+    <p>© 2025 Md Tahmid Islam · Built with ❤️ and HTML/CSS</p>
   </footer>
+
 </body>
 </html>
