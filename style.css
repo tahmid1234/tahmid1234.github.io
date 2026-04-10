@@ -136,3 +136,11 @@ footer {
   color: #fff;
   font-size: 0.95rem;
 }
+
+/* Certificate Image Constraints */
+.certificate-image img {
+  max-height: 350px; /* Prevents the certificate from being overwhelmingly large */
+  width: auto;
+  object-fit: contain;
+  border: 1px solid #eaeaea; /* Adds a subtle border around the paper */
+}
