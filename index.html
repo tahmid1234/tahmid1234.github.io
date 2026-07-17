@@ -1,212 +1,739 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Md Tahmid Islam - NLP & AI Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
- <meta name="description" content="Portfolio of Md Tahmid Islam — Software Engineer and AI Researcher specializing in applying foundation models (LLMs, Transformers) to biological sequences. Actively seeking Computational Biology and TechBio opportunities.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Md Tahmid Islam — Computational Biology / AI Research</title>
+<meta name="description" content="Md Tahmid Islam — AI researcher building language models for protein and genomic sequence analysis.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #F3F6F3;
+    --card: #FFFFFF;
+    --card-tint: #EAF1EC;
+    --ink: #16221D;
+    --ink-soft: #52655C;
+    --ink-faint: #8A9A91;
+    --accent: #1F6F5C;
+    --accent-dark: #164F41;
+    --accent-soft: #DCEAE4;
+    --line: #D6E1DA;
+    --a: #3D8B5F;
+    --t: #C1443C;
+    --c: #3B6FA0;
+    --g: #C98E2E;
+    --radius: 4px;
+    --maxw: 1080px;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a{ color: inherit; }
+  h1,h2,h3{ margin:0; font-weight: 500; }
+  p{ margin:0; }
+  ul{ margin:0; padding:0; list-style:none; }
+  img,svg{ display:block; max-width:100%; }
+  .mono{ font-family: 'JetBrains Mono', ui-monospace, monospace; }
+
+  ::selection{ background: var(--accent-soft); color: var(--accent-dark); }
+
+  :focus-visible{
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  .wrap{
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding-inline: 28px;
+  }
+
+  /* ---------- NAV ---------- */
+  header.site-nav{
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(243,246,243,0.86);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner{
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 16px 28px;
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+  }
+  .nav-mark{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--accent-dark);
+    text-decoration:none;
+  }
+  .nav-mark span{ color: var(--ink-faint); font-weight: 400; }
+  nav.nav-links{
+    display:flex;
+    gap: 28px;
+    align-items:center;
+  }
+  nav.nav-links a{
+    text-decoration:none;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    transition: color .15s ease;
+  }
+  nav.nav-links a:hover{ color: var(--accent-dark); }
+  .nav-cta{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    padding: 8px 14px;
+    border: 1px solid var(--accent);
+    border-radius: var(--radius);
+    color: var(--accent-dark) !important;
+    text-decoration:none;
+  }
+  .nav-cta:hover{ background: var(--accent); color: #fff !important; }
+  .nav-toggle{
+    display:none;
+    background:none;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    width: 38px; height: 34px;
+    cursor:pointer;
+    position: relative;
+  }
+  .nav-toggle span, .nav-toggle span::before, .nav-toggle span::after{
+    content:'';
+    position:absolute;
+    left: 9px; right: 9px;
+    height: 2px;
+    background: var(--ink);
+    transition: transform .2s ease, opacity .2s ease;
+  }
+  .nav-toggle span{ top: 16px; }
+  .nav-toggle span::before{ top: -6px; }
+  .nav-toggle span::after{ top: 6px; }
+  .mobile-panel{ display:none; }
+
+  @media (max-width: 780px){
+    nav.nav-links{
+      position: fixed;
+      inset: 60px 0 auto 0;
+      background: var(--bg);
+      flex-direction:column;
+      align-items: flex-start;
+      gap: 0;
+      padding: 8px 28px 20px;
+      border-bottom: 1px solid var(--line);
+      transform: translateY(-8px);
+      opacity: 0;
+      pointer-events:none;
+      transition: opacity .18s ease, transform .18s ease;
+    }
+    nav.nav-links.open{ opacity:1; transform: translateY(0); pointer-events:auto; }
+    nav.nav-links a{ padding: 12px 0; width:100%; border-bottom: 1px solid var(--line); font-size: 1rem; }
+    .nav-cta{ margin-top: 12px; display:inline-block; }
+    .nav-toggle{ display:block; }
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{ padding: 76px 0 40px; }
+  .eyebrow{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.82rem;
+    letter-spacing: 0.03em;
+    color: var(--accent-dark);
+    background: var(--accent-soft);
+    display:inline-block;
+    padding: 5px 10px;
+    border-radius: var(--radius);
+    margin-bottom: 22px;
+  }
+  h1.name{
+    font-family:'Newsreader', serif;
+    font-size: clamp(2.5rem, 6vw, 4.2rem);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    max-width: 14ch;
+  }
+  .tagline{
+    font-family:'Newsreader', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(1.2rem, 2.3vw, 1.55rem);
+    color: var(--accent-dark);
+    margin-top: 18px;
+    max-width: 34ch;
+  }
+  .lede{
+    margin-top: 22px;
+    max-width: 58ch;
+    color: var(--ink-soft);
+    font-size: 1.02rem;
+  }
+  .lede strong{ color: var(--ink); font-weight: 600; }
+
+  .hero-actions{
+    margin-top: 32px;
+    display:flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items:center;
+  }
+  .btn{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    padding: 12px 20px;
+    border-radius: var(--radius);
+    text-decoration:none;
+    display:inline-block;
+    border: 1px solid transparent;
+  }
+  .btn-primary{ background: var(--accent); color: #fff; }
+  .btn-primary:hover{ background: var(--accent-dark); }
+  .btn-ghost{ border-color: var(--line); color: var(--ink); }
+  .btn-ghost:hover{ border-color: var(--accent); color: var(--accent-dark); }
+
+  .contact-row{
+    margin-top: 26px;
+    display:flex;
+    flex-wrap:wrap;
+    gap: 4px 18px;
+    font-family:'JetBrains Mono', monospace;
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+  }
+  .contact-row a{ text-decoration:none; color: var(--ink-soft); border-bottom: 1px solid var(--line); }
+  .contact-row a:hover{ color: var(--accent-dark); border-color: var(--accent); }
+
+  /* ---------- TRACE (signature element) ---------- */
+  .trace-wrap{
+    margin-top: 56px;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding-block: 6px;
+    overflow:hidden;
+  }
+  .trace-wrap svg{ width: 100%; height: auto; display:block; }
+  .trace-legend{
+    display:flex;
+    justify-content: center;
+    gap: 22px;
+    padding: 10px 0 2px;
+    font-family:'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--ink-faint);
+  }
+  .trace-legend span{ display:inline-flex; align-items:center; gap:6px; }
+  .dot{ width:8px; height:8px; border-radius:50%; display:inline-block; }
+
+  /* ---------- SECTIONS ---------- */
+  section{ padding: 64px 0; }
+  section + section{ border-top: 1px solid var(--line); }
+  h2.eyebrow-h{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+    color: var(--accent-dark);
+    text-transform: lowercase;
+    margin-bottom: 30px;
+  }
+  h2.eyebrow-h::before{ content: '> '; color: var(--ink-faint); }
+
+  .reveal{
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity .5s ease, transform .5s ease;
+  }
+  .reveal.is-visible{ opacity: 1; transform: none; }
+
+  /* About */
+  .about-text{ max-width: 68ch; color: var(--ink-soft); font-size: 1.02rem; }
+  .about-text p + p{ margin-top: 14px; }
+  .about-text strong{ color: var(--ink); font-weight: 600; }
+
+  /* Experience */
+  .role{
+    display:grid;
+    grid-template-columns: 150px 1fr;
+    gap: 24px;
+    padding: 26px 0;
+  }
+  .role + .role{ border-top: 1px solid var(--line); }
+  .role-date{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--ink-faint);
+    padding-top: 3px;
+  }
+  .role-title{ font-size: 1.08rem; font-weight: 600; color: var(--ink); }
+  .role-org{ font-size: 0.92rem; color: var(--accent-dark); margin-top: 2px; font-family:'JetBrains Mono', monospace; }
+  .role ul{ margin-top: 14px; }
+  .role li{
+    position: relative;
+    padding-left: 18px;
+    color: var(--ink-soft);
+    font-size: 0.97rem;
+    margin-top: 8px;
+  }
+  .role li::before{
+    content:'';
+    position:absolute;
+    left:0; top: 9px;
+    width:6px; height:6px;
+    background: var(--accent);
+    border-radius: 50%;
+  }
+  .role li strong{ color: var(--ink); font-weight:600; }
+
+  .role-compact{
+    display:grid;
+    grid-template-columns: 150px 1fr;
+    gap: 24px;
+    padding: 16px 0;
+    align-items: baseline;
+  }
+  .role-compact + .role-compact{ border-top: 1px dashed var(--line); }
+  .role-compact .role-date{ padding-top:0; }
+  .role-compact-text{ font-size: 0.94rem; color: var(--ink-soft); }
+  .role-compact-text strong{ color: var(--ink); font-weight:600; }
+
+  @media (max-width: 620px){
+    .role, .role-compact{ grid-template-columns: 1fr; gap: 6px; }
+  }
+
+  /* Publications */
+  .pub-card{
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 28px;
+  }
+  .pub-card + .pub-card{ margin-top: 20px; }
+  .pub-card.featured{ border-color: var(--accent); box-shadow: 0 1px 0 var(--accent); }
+  .pub-tags{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom: 14px; }
+  .tag{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    padding: 4px 9px;
+    border-radius: 100px;
+    background: var(--accent-soft);
+    color: var(--accent-dark);
+  }
+  .tag.award{ background: #F6E9CF; color: #7A5714; }
+  .tag.status{ background: var(--card-tint); color: var(--ink-soft); }
+  .pub-title{ font-family:'Newsreader', serif; font-size: 1.3rem; font-weight: 500; color: var(--ink); max-width: 46ch; }
+  .pub-meta{ font-family:'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--ink-faint); margin-top: 6px; }
+  .pub-desc{ margin-top: 14px; color: var(--ink-soft); font-size: 0.96rem; max-width: 62ch; }
+  .pub-desc strong{ color: var(--ink); font-weight:600; }
+  .pub-note{ margin-top: 14px; color: var(--ink-faint); font-size: 0.9rem; font-style: italic; }
+
+  .pub-card-grid{ display:grid; grid-template-columns: 1fr 190px; gap: 28px; align-items:start; }
+  @media (max-width: 620px){ .pub-card-grid{ grid-template-columns: 1fr; } }
+
+  .pub-card-cert{
+    position: relative;
+    border: 1px dashed var(--line);
+    border-radius: 6px;
+    min-height: 150px;
+    display:flex; align-items:center; justify-content:center;
+    background: var(--card-tint);
+    overflow:hidden;
+  }
+  .pub-card-cert #certImg{ display:none; width:100%; height:100%; object-fit:cover; border-radius: 5px; }
+  .cert-placeholder{ text-align:center; padding: 16px; }
+  .cert-icon{ font-size: 1.5rem; display:block; margin-bottom: 6px; opacity: .7; }
+  .cert-placeholder p{ font-size: 0.78rem; color: var(--ink-soft); }
+  .cert-hint{ font-family:'JetBrains Mono', monospace; font-size: 0.66rem !important; color: var(--ink-faint) !important; margin-top: 8px !important; line-height:1.5; }
+  .cert-hint code{ background: var(--bg); padding: 1px 4px; border-radius: 3px; }
+
+  .pub-figure{
+    margin-top: 18px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: #fff;
+    padding: 12px;
+  }
+  .pub-figure img{ width:100%; height:auto; border-radius: 2px; }
+
+  /* Skills */
+  .skill-grid{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 34px 40px;
+  }
+  @media (max-width: 620px){ .skill-grid{ grid-template-columns: 1fr; } }
+  .skill-cat-label{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--ink-faint);
+    margin-bottom: 12px;
+    display:flex; align-items:center; gap:8px;
+  }
+  .pill-row{ display:flex; flex-wrap:wrap; gap: 8px; }
+  .pill{
+    font-size: 0.86rem;
+    padding: 7px 13px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 100px;
+    color: var(--ink);
+  }
+
+  /* Education */
+  .edu-item{ padding: 20px 0; display:grid; grid-template-columns: 150px 1fr; gap:24px; }
+  .edu-item + .edu-item{ border-top: 1px solid var(--line); }
+  .edu-degree{ font-weight:600; font-size: 1.02rem; color: var(--ink); }
+  .edu-org{ font-family:'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--accent-dark); margin-top:2px; }
+  .edu-honor{ margin-top: 6px; font-size: 0.9rem; color: var(--ink-soft); }
+  @media (max-width: 620px){ .edu-item{ grid-template-columns: 1fr; gap:6px; } }
+
+  /* Contact / Footer */
+  footer{ padding: 64px 0 40px; }
+  .contact-cta{ font-family:'Newsreader', serif; font-size: clamp(1.8rem, 4vw, 2.6rem); max-width: 32ch; }
+  .footer-links{ margin-top: 26px; display:flex; flex-wrap:wrap; gap: 10px 26px; }
+  .footer-links a{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 0.88rem;
+    text-decoration:none;
+    color: var(--ink-soft);
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 2px;
+  }
+  .footer-links a:hover{ color: var(--accent-dark); border-color: var(--accent); }
+  .footer-end{
+    margin-top: 48px;
+    font-family:'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--ink-faint);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+    .reveal{ opacity:1; transform:none; transition:none; }
+  }
+</style>
 </head>
 <body>
 
-  <!-- Hero Section -->
-  
-  <header class="hero">
-    <div class="overlay">
-      <h1>Md Tahmid Islam</h1>
-      <p>Software Engineer · AI & Computational Biology Researcher</p>
-      <div class="links">
-        <a href="mailto:muhammad.tahmid.islam@gmail.com">Email</a>
-        <a href="https://linkedin.com/in/tahmid-islam" target="_blank">LinkedIn</a>
-        <a href="https://github.com/tahmid1234" target="_blank">GitHub</a>
-      </div>
-    </div>
-  </header>
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-mark">md_tahmid_islam<span>.bio</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
+    <nav class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#publications">Publications</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#contact" class="nav-cta">Contact</a>
+    </nav>
+  </div>
+</header>
 
-  <!-- About -->
-  <section class="section">
-    <h2>About Me</h2>
-    <p>
-      I am a graduate student at <b>North Dakota State University</b> passionate about bridging software engineering with <b>computational biology</b>. 
-      My research focuses on applying foundation models (Transformers, LLMs) to decode complex biological sequences, such as <b>DNA and proteins</b>. 
-      Previously, I led backend engineering at EVQ Labs, developing scalable cloud infrastructure and deployment pipelines. 
-      I am actively seeking <b>Computational Biology and TechBio opportunities</b> where I can leverage my deep learning expertise and production engineering skills to accelerate biological discovery.
+<main id="top">
+  <div class="wrap hero">
+    <span class="eyebrow">&gt;open_to: computational_bio × bioinformatics × applied_ml</span>
+    <h1 class="name">Md Tahmid Islam</h1>
+    <p class="tagline">Teaching language models to read DNA and protein.</p>
+    <p class="lede">
+      AI researcher pre-training and fine-tuning transformer foundation models —
+      <strong>T5, BERT, ProtBERT</strong> — for genomic and protein sequence analysis, backed by
+      three years of production software engineering. Recent work on a structure-aware attention
+      mechanism improved protein function prediction by <strong>29.6% in F1</strong> over prior benchmarks.
     </p>
-  </section>
-
-  <!-- Experience -->
-  <section class="section">
-    <h2>Experience</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>Graduate Research Assistant</h3>
-        <p class="meta">North Dakota State University · Jan 2025 – Present</p>
-        <ul>
-          <li>Developed a ProtBERT variant for protein function prediction (↑29.6% F1, ↑31.1% AUPRC).</li>
-          <li>Pretrained T5 models on biological sequences for translation-based tasks.</li>
-          <li>Fine-tuned DNA-BERT, GPN, and Mamba for plant DNA classification.</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>Backend Software Engineer</h3>
-        <p class="meta">EVQ Labs · 2021 – 2024</p>
-        <ul>
-          <li>Led backend team, designing and deploying AWS architecture (Lambda, EC2, RDS for PostgreSQL).</li>
-          <li>Developed decentralized apps, RAG tools, and Telegram bots for Web3 engagement.</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>Software Developer Intern</h3>
-        <p class="meta">SELISE · Feb – Jul 2022</p>
-        <ul>
-          <li>Built automated testing frameworks that improved coverage and reduced manual QA effort.</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Developer Intern</h3>
-        <p class="meta">Streams Tech · Feb – May 2021</p>
-        <ul>
-          <li>Designed database schema and backend components, enabling the company’s internal leave management system.</li>
-        </ul>
-      </div>
+    <div class="hero-actions">
+      <a href="#publications" class="btn btn-primary">Read the research</a>
+      <a href="Resume_Md_Tahmid_Islam.pdf" download class="btn btn-ghost">Download résumé</a>
     </div>
-  </section>
-
-  <!-- Technical Skills -->
-  <section class="section">
-    <h2>Technical Skills</h2>
-    <div class="tags">
-      <span>Python</span><span>PyTorch</span><span>Transformers</span><span>Pydantic AI</span>
-      <span>RAG</span>
-      <span>LangChain</span><span>Hugging Face</span><span>OpenAI SDK</span>
-      <span>GenAI SDK</span><span>Litellm</span><span>AWS (Lambda, EC2, RDS)</span>
-      <span>PostgreSQL</span><span>Deep Learning</span><span>LLMs</span>
-      <span>Few-Shot Learning</span><span>RAG Systems</span><span>Biopython</span>
+    <div class="contact-row">
+      <a href="mailto:muhammad.tahmid.islam@gmail.com">muhammad.tahmid.islam@gmail.com</a>
+      <a href="tel:+17013061338">+1&nbsp;701&nbsp;306&nbsp;1338</a>
+      <a href="https://www.linkedin.com/in/muhammad-tahmid-islam/" target="_blank" rel="noopener">linkedin.com/in/muhammad-tahmid-islam</a>
+      <span>Fargo, ND, USA</span>
     </div>
-  </section>
+  </div>
 
-  <section class="section">
-    <h2>Awards & Publications</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>🏆 Best Paper Award Finalist (Top 3)</h3>
-        <p class="meta">BICOB 2026 International Conference</p>
+  <div class="trace-wrap">
+    <svg id="traceSvg" viewBox="0 0 1200 90" preserveAspectRatio="none" aria-hidden="true"></svg>
+    <div class="trace-legend">
+      <span><i class="dot" style="background:var(--a)"></i>A</span>
+      <span><i class="dot" style="background:var(--t)"></i>T</span>
+      <span><i class="dot" style="background:var(--c)"></i>C</span>
+      <span><i class="dot" style="background:var(--g)"></i>G</span>
+    </div>
+  </div>
+
+  <section id="about">
+    <div class="wrap reveal">
+      <h2 class="eyebrow-h">about</h2>
+      <div class="about-text">
         <p>
-          Nominated for the first-author publication: <br>
-          <b>"A Structure-Aware Attention Mechanism for Protein Function Prediction."</b><br>
-          <i>Currently being extended for journal submission.</i>
+          I'm a graduate researcher at North Dakota State University working at the intersection of
+          <strong>natural language processing and genomic sequence modeling</strong> — applying the architectures
+          built for human language directly to DNA and protein sequences. That means custom tokenizers for
+          biological sequences, pre-training and fine-tuning foundation models, and modifying attention
+          mechanisms so they attend to the things that matter in a protein or a strand of DNA.
         </p>
-        <div class="project-image certificate-image">
-          <img src="https://raw.githubusercontent.com/tahmid1234/tahmid1234.github.io/refs/heads/main/WhatsApp%20Image%202026-04-10%20at%2012.58.46%20AM.jpeg" alt="BICOB 2026 Best Paper Award Finalist Certificate">
+        <p>
+          Before graduate school, I spent three years as a backend engineer leading feature delivery and
+          cloud infrastructure for a remote team — experience that now shows up as pipelines that actually
+          scale, not just notebooks that run once. I'm looking for a <strong>computational biology, bioinformatics,
+          or applied ML</strong> role where that combination — production engineering discipline plus
+          foundation-model research — is the point, not the exception.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap reveal">
+      <h2 class="eyebrow-h">experience</h2>
+
+      <div class="role">
+        <div class="role-date mono">Jan 2025 —<br>Present</div>
+        <div>
+          <div class="role-title">Graduate Research Assistant</div>
+          <div class="role-org">North Dakota State University, Fargo, ND</div>
+          <ul>
+            <li>Developed a novel variant of <strong>ProtBERT</strong> with a modified attention mechanism for
+              protein function prediction, achieving a <strong>29.6% relative improvement in F1</strong> and
+              <strong>31.1% in AUPRC</strong> over state-of-the-art benchmarks — leading to a first-author
+              publication and a Best Paper Award Finalist nomination at BICOB 2026.</li>
+            <li>Built custom tokenizers and preprocessing pipelines to pre-train and fine-tune
+              <strong>T5</strong> foundation models for sequence-to-sequence generation tasks on biological data.</li>
+            <li>Fine-tuned <strong>DNA-BERT, GPN, PlantCaduceus/Mamba</strong>, and deep models (LSTM, GRU, CNN)
+              for DNA sequence classification.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="role">
+        <div class="role-date mono">Dec 2021 —<br>Dec 2024</div>
+        <div>
+          <div class="role-title">Backend Software Engineer</div>
+          <div class="role-org">EVQ Labs, Dubai, UAE (Remote)</div>
+          <ul>
+            <li>Led the backend team — owned feature delivery, project timelines, and stakeholder meetings.</li>
+            <li>Designed backend architecture and deployed <strong>AWS</strong> services (Lambda, EC2, RDS for PostgreSQL).</li>
+            <li>Built decentralized applications with smart contract integration, RAG applications, and
+              interactive Discord/Telegram bots for user engagement.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="role-compact">
+        <div class="role-date mono">Feb 2022 —<br>Jul 2022</div>
+        <div class="role-compact-text"><strong>Software Developer Intern</strong>, SELISE, Dhaka —
+          contributed to an automated testing framework that increased coverage and reduced manual QA effort.</div>
+      </div>
+      <div class="role-compact">
+        <div class="role-date mono">Feb 2021 —<br>May 2021</div>
+        <div class="role-compact-text"><strong>Developer Intern</strong>, Streams Tech, Dhaka —
+          designed the database schema and backend for the company's internal leave management system.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="publications">
+    <div class="wrap reveal">
+      <h2 class="eyebrow-h">publications</h2>
+
+      <div class="pub-card featured">
+        <div class="pub-card-grid">
+          <div class="pub-card-main">
+            <div class="pub-tags">
+              <span class="tag award">Best Paper Award Finalist · Top 3</span>
+              <span class="tag">Accepted · BICOB 2026 (Springer)</span>
+              <span class="tag status">Journal extension in progress</span>
+            </div>
+            <div class="pub-title">A Structure-Aware Attention Mechanism for Protein Function Prediction</div>
+            <div class="pub-meta">Md Tahmid Islam, Dr. Changhui Yan &nbsp;·&nbsp;
+              <a href="https://doi.org/10.1007/978-3-032-26028-4_3" target="_blank" rel="noopener">doi.org/10.1007/978-3-032-26028-4_3</a>
+            </div>
+            <p class="pub-desc">
+              Introduces a modified attention mechanism for <strong>ProtBERT</strong> that incorporates structural
+              context into protein function prediction, outperforming prior benchmarks by
+              <strong>29.6%</strong> (F1) and <strong>31.1%</strong> (AUPRC).
+            </p>
+          </div>
+          <div class="pub-card-cert">
+            <img src="certificate.jpg" alt="Best Paper Award Finalist certificate" id="certImg">
+            <div class="cert-placeholder" id="certPlaceholder">
+              <span class="cert-icon">🏆</span>
+              <p>Award certificate</p>
+              <p class="cert-hint">Save your photo as<br><code>certificate.jpg</code><br>next to index.html</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-tags">
+          <span class="tag status">Manuscript submitted</span>
+        </div>
+        <div class="pub-title">UBLM: A Unified Bio-Language Model</div>
+        <p class="pub-desc">
+          A foundation model that jointly represents <strong>DNA and protein sequences</strong> in one shared
+          vocabulary of nucleotide triplets and amino acids, pre-trained on <strong>277M+ sequences</strong> from
+          representative <em>E. coli</em> strains and mapped into a shared embedding space. Fine-tuned into two
+          applications: <strong>UBLM-Gene-Finder</strong>, which outperforms Prodigal and GeneMarkS-2 at
+          identifying gene boundaries — particularly on short genes — and <strong>UBLM-Optimizer</strong>,
+          which generates coding sequences that outperform CodonTransformer and ICOR on naturalness and viability.
+          The first unified foundation model to jointly model DNA and protein in <em>E. coli</em>, laying groundwork
+          for future models spanning RNA, carbohydrates, and metabolites in more complex organisms.
+        </p>
+        <div class="pub-figure">
+          <img src="ublm_graphical_abstract.png" alt="UBLM graphical abstract: pre-training on 277M E. coli DNA and protein sequences with a shared codon/amino-acid vocabulary, fine-tuned into UBLM-Gene-Finder and UBLM-Optimizer">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Fun Projects -->
-  <section class="section">
- <h2>Fun Projects</h2>
-<div class="cards">
-  <div class="card">
-    <h3>Argumentative vs Polite Chatbots</h3>
-    <p>
-      A fun conversational experiment using <b>LangChain</b> to connect
-      <b>Gemini (Flash 2.5)</b> and <b>DeepSeek-R1</b> with opposing personalities.
-      Gemini argues snarkily while DeepSeek stays calm and polite.
-    </p>
-    <p><b>Tech:</b> LangChain · Hugging Face </p>
-    <!-- <a href="nb?browser=safari&bypass_fastly=true&color_mode=auto&commit=826fe31e0965b7d19b3f79e94c2951f9362a3140&device=unknown_de" target="_blank">View Code</a> -->
-    <div class="project-image">
-      <img src="https://raw.githubusercontent.com/tahmid1234/tahmid1234.github.io/main/LLM_CONVO.png" alt="Chatbot Conversation Screenshot">
-    </div>
-  </div>
-
-  <div class="card">
-    <h3>Battle Between LLMs (Tic-Tac-Toe)</h3>
-    <p>
-      A <b>Streamlit</b> game where <b>Gemini-flash-2.5</b> and <b>Llama-3.1</b> 
-      play Tic-Tac-Toe against each other in real time </b>.
-    </p>
-    <p><b>Tech:</b> Streamlit · GenAI SDK · HF InferenceClient</p>
-    <!-- <a href="https://github.com/tahmid1234/Battle-of-LLMs-Tic-Tac_Toe" target="_blank">View Code</a> -->
-    <div class="project-image">
-      <img src="https://raw.githubusercontent.com/tahmid1234/tahmid1234.github.io/main/tic_tac_toe.png" alt="Tic Tac Toe LLM Game Screenshot">
-    </div>
-  </div>
-  
-    
-</div>
-    <div class="card">
-    <h3>Smart Weather Forecasting (Agentic AI)</h3>
-   <p>
-  An <b>agentic AI system</b> that forecasts <b>today’s weather</b> for a given city using 
-  <b>Gemini Flash 2.5</b> orchestrated with <b>PydanticAI</b>.  
-  The agent autonomously fetches real-time weather data from the 
-  <b>OpenWeatherMap API</b> and generates concise, human-readable weather summaries.
-</p>
-    <p><b>Tech:</b>  PydanticAI · Gemini Flash 2.5 · OpenWeatherMap API · Python · Gradio</p>
-    <!-- <a href="https://github.com/tahmid1234/Battle-of-LLMs-Tic-Tac_Toe" target="_blank">View Code</a> -->
-    <div class="project-image">
-      <img src="https://raw.githubusercontent.com/tahmid1234/tahmid1234.github.io/refs/heads/main/weather_forecastier.png" alt="Tic Tac Toe LLM Game Screenshot">
-    </div>
-  </div>
-  
-  <div class="card">
-  <h3>InsureLLM RAG Assistant</h3>
-  <p>
-    A retrieval-augmented generation (RAG) application built for 
-    <b>InsureLLM</b>, enabling an AI assistant to answer questions about the 
-    company's employees, products, contracts, processes, and internal docs.
-  </p>
-  <p><b>Tech:</b> LangChain · Gemini-Flash-2.5 · Chroma · HuggingFace Embeddings · Gradio</p>
-
-  
-  
-  <!-- Add your screenshot here -->
-  <div class="project-image">
-    <img src="https://raw.githubusercontent.com/tahmid1234/tahmid1234.github.io/refs/heads/main/rag_app.png" alt="InsureLLM RAG App Screenshot">
-  </div>
-</div>
-  
-  <div class="card">
-    <h3>Job Matching LLM</h3>
-    <p>
-      A <b>Lora-tuned Gemini-2-9B</b> model that predicts the compatibility between a <b>candidate profile</b> 
-      and a <b>job description</b>. It provides a score (0–100) along with a status: 
-      <b>No Match</b>, <b>Not Bad Match</b>, <b>Good Match</b>, or <b>Excellent Match</b>.
-    </p>
-    <p><b>Tech:</b> Transformers · LoRA · Hugging Face Datasets · PyTorch . PEFT</p>
-    <!-- <a href="https://github.com/yourusername/job-matching-llm" target="_blank">View Code</a> -->
-    <div class="project-image">
-      <img src="https://raw.githubusercontent.com/tahmid1234/tahmid1234.github.io/refs/heads/main/lora.png" alt="Job Matching LLM Screenshot">
-    </div>
-</div>
-</div>
-  </section>
-
-  <!-- Education -->
-  <section class="section">
-    <h2>Education</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>North Dakota State University</h3>
-        <p>MS in Computer Science (Expected 2026)</p>
-      </div>
-      <div class="card">
-        <h3>Islamic University of Technology</h3>
-        <p>BSc in Software Engineering (First Class with Honors, 2022)</p>
+  <section id="skills">
+    <div class="wrap reveal">
+      <h2 class="eyebrow-h">skills</h2>
+      <div class="skill-grid">
+        <div>
+          <div class="skill-cat-label"><i class="dot" style="background:var(--a)"></i>Languages</div>
+          <div class="pill-row">
+            <span class="pill">Python</span><span class="pill">JavaScript</span><span class="pill">SQL</span>
+          </div>
+        </div>
+        <div>
+          <div class="skill-cat-label"><i class="dot" style="background:var(--t)"></i>ML &amp; deep learning</div>
+          <div class="pill-row">
+            <span class="pill">PyTorch</span><span class="pill">Transformers / LLMs</span>
+            <span class="pill">LoRA</span><span class="pill">Neural Networks</span>
+          </div>
+        </div>
+        <div>
+          <div class="skill-cat-label"><i class="dot" style="background:var(--c)"></i>Genomic &amp; bio models</div>
+          <div class="pill-row">
+            <span class="pill">ProtBERT</span><span class="pill">DNA-BERT</span><span class="pill">GPN</span>
+            <span class="pill">PlantCaduceus / Mamba</span><span class="pill">T5</span><span class="pill">BERT</span>
+            <span class="pill">Biopython</span>
+          </div>
+        </div>
+        <div>
+          <div class="skill-cat-label"><i class="dot" style="background:var(--g)"></i>Infra &amp; tools</div>
+          <div class="pill-row">
+            <span class="pill">AWS Lambda</span><span class="pill">EC2</span><span class="pill">RDS / PostgreSQL</span>
+            <span class="pill">LangChain</span><span class="pill">Chroma</span><span class="pill">Pydantic AI</span>
+            <span class="pill">RAG</span><span class="pill">Express.js</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 Md Tahmid Islam · Built with and HTML/CSS</p>
-  </footer>
+  <section id="education">
+    <div class="wrap reveal">
+      <h2 class="eyebrow-h">education</h2>
+      <div class="edu-item">
+        <div class="role-date mono">Jan 2025 —<br>Dec 2026 (exp.)</div>
+        <div>
+          <div class="edu-degree">Master of Science in Computer Science</div>
+          <div class="edu-org">North Dakota State University, Fargo, ND</div>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div class="role-date mono">— May 2022</div>
+        <div>
+          <div class="edu-degree">Bachelor of Science in Software Engineering</div>
+          <div class="edu-org">Islamic University of Technology, Dhaka, Bangladesh</div>
+          <div class="edu-honor">Graduated with First Class with Honors</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="wrap reveal">
+    <h2 class="eyebrow-h">contact</h2>
+    <p class="contact-cta">Open to computational biology, bioinformatics, and applied ML roles — let's talk.</p>
+    <div class="footer-links">
+      <a href="mailto:muhammad.tahmid.islam@gmail.com">muhammad.tahmid.islam@gmail.com</a>
+      <a href="tel:+17013061338">+1 701 306 1338</a>
+      <a href="https://www.linkedin.com/in/muhammad-tahmid-islam/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a href="https://tahmid1234.github.io" target="_blank" rel="noopener">tahmid1234.github.io ↗</a>
+      <a href="Resume_Md_Tahmid_Islam.pdf" download>Download résumé ↗</a>
+    </div>
+    <div class="footer-end mono">&gt;&gt;&gt; end_of_record</div>
+  </div>
+</footer>
+
+<script>
+  // mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', open);
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', false);
+  }));
+
+  // scroll reveal
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduceMotion){
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
+  }
+
+  // swap in the real award certificate once the user adds certificate.jpg
+  (function(){
+    const img = document.getElementById('certImg');
+    const placeholder = document.getElementById('certPlaceholder');
+    if(!img) return;
+    img.addEventListener('load', () => { img.style.display = 'block'; placeholder.style.display = 'none'; });
+  })();
+
+  // generate a sequencing-trace signature graphic
+  (function(){
+    const svg = document.getElementById('traceSvg');
+    const W = 1200, H = 90, base = 45;
+    const colors = { a: '#3D8B5F', t: '#C1443C', c: '#3B6FA0', g: '#C98E2E' };
+    const cfg = [
+      { key:'a', amp: 30, freq: 5.2, phase: 0.3 },
+      { key:'t', amp: 24, freq: 6.7, phase: 1.8 },
+      { key:'c', amp: 20, freq: 4.1, phase: 3.1 },
+      { key:'g', amp: 16, freq: 7.9, phase: 5.0 }
+    ];
+    let svgMarkup = '';
+    cfg.forEach(line => {
+      let pts = [];
+      for(let x = 0; x <= W; x += 12){
+        const envelope = 0.35 + 0.65 * Math.abs(Math.sin((x / W) * Math.PI * 2.3 + line.phase));
+        const y = base + line.amp * envelope * Math.sin((x / W) * Math.PI * line.freq + line.phase);
+        pts.push(x.toFixed(1) + ',' + y.toFixed(1));
+      }
+      svgMarkup += `<polyline points="${pts.join(' ')}" fill="none" stroke="${colors[line.key]}" stroke-width="1.6" opacity="0.85" stroke-linecap="round" stroke-linejoin="round" style="mix-blend-mode:multiply" />`;
+    });
+    svg.innerHTML = svgMarkup;
+  })();
+</script>
 
 </body>
 </html>
