@@ -588,14 +588,9 @@
         </div>
         <div class="pub-title">UBLM: A Unified Bio-Language Model</div>
         <p class="pub-desc">
-          A foundation model that jointly represents <strong>DNA and protein sequences</strong> in one shared
-          vocabulary of nucleotide triplets and amino acids, pre-trained on <strong>277M+ sequences</strong> from
-          representative <em>E. coli</em> strains and mapped into a shared embedding space. Fine-tuned into two
-          applications: <strong>UBLM-Gene-Finder</strong>, which outperforms Prodigal and GeneMarkS-2 at
-          identifying gene boundaries — particularly on short genes — and <strong>UBLM-Optimizer</strong>,
-          which generates coding sequences that outperform CodonTransformer and ICOR on naturalness and viability.
-          The first unified foundation model to jointly model DNA and protein in <em>E. coli</em>, laying groundwork
-          for future models spanning RNA, carbohydrates, and metabolites in more complex organisms.
+        UBLM , a unified DNA–protein foundation model (T5 architecture) with custom tokenizers spanning a shared 
+codon/amino-acid vocabulary, pre-trained on 277M+  <em>E.coli</em> sequences; fine-tuned into gene-boundary detection and codon
+optimization applications that outperform existing tools. Manuscript submitted.
         </p>
         <div class="pub-figure">
           <img src="ublm_graphical_abstract.png" alt="UBLM graphical abstract: pre-training on 277M E. coli DNA and protein sequences with a shared codon/amino-acid vocabulary, fine-tuned into UBLM-Gene-Finder and UBLM-Optimizer">
