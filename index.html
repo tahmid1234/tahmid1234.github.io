@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Md Tahmid Islam — Computational Biology / AI Research</title>
-<meta name="description" content="Md Tahmid Islam — AI researcher building language models for protein and genomic sequence analysis.">
+<meta name="description" content="Md Tahmid Islam — Machine learning researcher focused on genomic and protein foundation models, custom sequence architectures, and distributed pretraining.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -181,7 +181,7 @@
   }
   .lede{
     margin-top: 22px;
-    max-width: 58ch;
+    max-width: 62ch;
     color: var(--ink-soft);
     font-size: 1.02rem;
   }
@@ -447,14 +447,16 @@
 
 <main id="top">
   <div class="wrap hero">
-    <span class="eyebrow">&gt;open_to: computational_bio × bioinformatics × applied_ml</span>
+    <span class="eyebrow">&gt;open_to: computational_bio × genomic_ai × ml_research</span>
     <h1 class="name">Md Tahmid Islam</h1>
-    <p class="tagline">Teaching language models to read DNA and protein.</p>
+    <p class="tagline">Teaching foundation models to read DNA, proteins, and epigenomes.</p>
     <p class="lede">
-      AI researcher pre-training and fine-tuning transformer foundation models —
-      <strong>T5, BERT, ProtBERT</strong> — for genomic and protein sequence analysis, backed by
-      three years of production software engineering. Recent work on a structure-aware attention
-      mechanism improved protein function prediction by <strong>29.6% in F1</strong> over prior benchmarks.
+      Machine learning researcher focused on <strong>genomic and protein foundation models</strong>,
+      custom sequence architectures, and distributed pretraining, backed by 3 years of industry
+      experience as a backend software engineer. Designed a T5-based DNA–protein model trained on
+      <strong>277M+ sequences</strong>, published first-author work achieving a
+      <strong>29.6% relative F1 improvement</strong> in protein-function prediction, and currently
+      developing multi-scale models for <strong>epigenetics-based gene-expression prediction</strong>.
     </p>
     <div class="hero-actions">
       <a href="#publications" class="btn btn-primary">Read the research</a>
@@ -484,17 +486,19 @@
       <div class="about-text">
         <p>
           I'm a graduate researcher at North Dakota State University working at the intersection of
-          <strong>natural language processing and genomic sequence modeling</strong> — applying the architectures
-          built for human language directly to DNA and protein sequences. That means custom tokenizers for
-          biological sequences, pre-training and fine-tuning foundation models, and modifying attention
-          mechanisms so they attend to the things that matter in a protein or a strand of DNA.
+          <strong>deep learning and biological sequence modeling</strong> — designing custom tokenizers,
+          distributed pretraining pipelines, and structure-aware attention mechanisms for DNA, protein,
+          and epigenomic datasets. Currently, my research explores how multi-scale architectures
+          (Bi-Mamba, Cross-Attention, and Transformers) capture the interplay between promoter DNA,
+          DNA methylation, and histone modifications across long genomic contexts.
         </p>
         <p>
-          Before graduate school, I spent three years as a backend engineer leading feature delivery and
-          cloud infrastructure for a remote team — experience that now shows up as pipelines that actually
-          scale, not just notebooks that run once. I'm looking for a <strong>computational biology, bioinformatics,
-          or applied ML</strong> role where that combination — production engineering discipline plus
-          foundation-model research — is the point, not the exception.
+          Before graduate school, I spent three years as a backend software engineer leading a remote team
+          and building scalable cloud services on AWS — experience that now translates into high-throughput
+          genomic ETL pipelines (<strong>HDF5, BigWig, BED</strong>) and multi-GPU training workflows that
+          scale cleanly. I'm completing all MS coursework in <strong>December 2026</strong> (with only my thesis
+          defense in Spring 2027) and am actively seeking a <strong>computational biology, bioinformatics,
+          or ML research/engineering</strong> role.
         </p>
       </div>
     </div>
@@ -508,16 +512,19 @@
         <div class="role-date mono">Jan 2025 —<br>Present</div>
         <div>
           <div class="role-title">Graduate Research Assistant</div>
-          <div class="role-org">North Dakota State University, Fargo, ND</div>
+          <div class="role-org">North Dakota State University (NDSU), Fargo, ND</div>
           <ul>
-            <li>Developed a novel variant of <strong>ProtBERT</strong> with a modified attention mechanism for
-              protein function prediction, achieving a <strong>29.6% relative improvement in F1</strong> and
-              <strong>31.1% in AUPRC</strong> over state-of-the-art benchmarks — leading to a first-author
-              publication and a Best Paper Award Finalist nomination at BICOB 2026.</li>
-            <li>Built custom tokenizers and preprocessing pipelines to pre-train and fine-tune
-              <strong>T5</strong> foundation models for sequence-to-sequence generation tasks on biological data.</li>
-            <li>Fine-tuned <strong>DNA-BERT, GPN, PlantCaduceus/Mamba</strong>, and deep models (LSTM, GRU, CNN)
-              for DNA sequence classification.</li>
+            <li>Designed and pretrained <strong>UBLM</strong>, a multimodal DNA–protein foundation model using a
+              <strong>T5 architecture</strong> and custom codon–amino acid tokenizer; trained on
+              <strong>277M+ <em>E. coli</em> sequences</strong> with distributed GPU training and fine-tuned
+              for downstream sequence generation and codon optimization (manuscript submitted).</li>
+            <li>Modified <strong>ProtBERT's attention mechanism</strong> for protein-function prediction,
+              achieving <strong>29.6% relative F1</strong> and <strong>31.1% relative AUPRC</strong> improvements
+              over prior benchmarks; first-author BICOB 2026 paper and <strong>Best Paper Award Finalist (Top 3)</strong>.</li>
+            <li>Developing a multi-scale genomic regression pipeline comparing <strong>Bi-Mamba, Cross-Attention,
+              and Transformer</strong> architectures (alongside GRU and XGBoost baselines) across 2 kb, 8 kb, and
+              40 kb receptive fields to model the interplay between promoter DNA, WGBS methylation, and 6 histone
+              ChIP-seq signals for gene-expression prediction.</li>
           </ul>
         </div>
       </div>
@@ -528,10 +535,9 @@
           <div class="role-title">Backend Software Engineer</div>
           <div class="role-org">EVQ Labs, Dubai, UAE (Remote)</div>
           <ul>
-            <li>Led the backend team — owned feature delivery, project timelines, and stakeholder meetings.</li>
-            <li>Designed backend architecture and deployed <strong>AWS</strong> services (Lambda, EC2, RDS for PostgreSQL).</li>
-            <li>Built decentralized applications with smart contract integration, RAG applications, and
-              interactive Discord/Telegram bots for user engagement.</li>
+            <li>Led a backend engineering team, owning feature delivery, system architecture, and project timelines.</li>
+            <li>Developed and deployed scalable production backend services and relational data pipelines using
+              <strong>AWS Lambda, EC2, and RDS/PostgreSQL</strong>.</li>
           </ul>
         </div>
       </div>
@@ -539,36 +545,35 @@
       <div class="role-compact">
         <div class="role-date mono">Feb 2022 —<br>Jul 2022</div>
         <div class="role-compact-text"><strong>Software Developer Intern</strong>, SELISE, Dhaka —
-          contributed to an automated testing framework that increased coverage and reduced manual QA effort.</div>
+          contributed to an automated testing framework that improved test coverage and reduced manual QA effort.</div>
       </div>
       <div class="role-compact">
         <div class="role-date mono">Feb 2021 —<br>May 2021</div>
         <div class="role-compact-text"><strong>Developer Intern</strong>, Streams Tech, Dhaka —
-          designed the database schema and backend for the company's internal leave management system.</div>
+          developed database schemas and backend components for an internal leave-management system.</div>
       </div>
     </div>
   </section>
 
   <section id="publications">
     <div class="wrap reveal">
-      <h2 class="eyebrow-h">publications</h2>
+      <h2 class="eyebrow-h">publications &amp; ongoing research</h2>
 
       <div class="pub-card featured">
         <div class="pub-card-grid">
           <div class="pub-card-main">
             <div class="pub-tags">
               <span class="tag award">Best Paper Award Finalist · Top 3</span>
-              <span class="tag">Accepted · BICOB 2026 (Springer)</span>
-              <span class="tag status">Journal extension in progress</span>
+              <span class="tag">Published · BICOB 2026 (Springer)</span>
             </div>
             <div class="pub-title">A Structure-Aware Attention Mechanism for Protein Function Prediction</div>
-            <div class="pub-meta">Md Tahmid Islam, Dr. Changhui Yan &nbsp;·&nbsp;
+            <div class="pub-meta">Md Tahmid Islam, Changhui Yan &nbsp;·&nbsp;
               <a href="https://doi.org/10.1007/978-3-032-26028-4_3" target="_blank" rel="noopener">doi.org/10.1007/978-3-032-26028-4_3</a>
             </div>
             <p class="pub-desc">
               Introduces a modified attention mechanism for <strong>ProtBERT</strong> that incorporates structural
-              context into protein function prediction, outperforming prior benchmarks by
-              <strong>29.6%</strong> (F1) and <strong>31.1%</strong> (AUPRC).
+              context into protein-function prediction, outperforming prior benchmarks by
+              <strong>29.6% relative F1</strong> and <strong>31.1% relative AUPRC</strong>.
             </p>
           </div>
           <div class="pub-card-cert">
@@ -576,7 +581,7 @@
             <div class="cert-placeholder" id="certPlaceholder">
               <span class="cert-icon">🏆</span>
               <p>Award certificate</p>
-              <p class="cert-hint">Save your photo as<br><code>certificate.jpg</code><br>next to index.html</p>
+              <p class="cert-hint">Save your photo as<br><code>best_paper.jpg</code><br>next to index.html</p>
             </div>
           </div>
         </div>
@@ -588,48 +593,68 @@
         </div>
         <div class="pub-title">UBLM: A Unified Bio-Language Model</div>
         <p class="pub-desc">
-        UBLM , a unified DNA–protein foundation model (T5 architecture) with custom tokenizers spanning a shared 
-codon/amino-acid vocabulary, pre-trained on 277M+  <em>E.coli</em> sequences; fine-tuned into gene-boundary detection and codon
-optimization applications that outperform existing tools. Manuscript submitted.
+          A multimodal DNA–protein foundation model built on a <strong>T5 architecture</strong> with a custom
+          shared codon–amino acid tokenizer. Pretrained via distributed GPU training on
+          <strong>277M+ <em>E. coli</em> sequences</strong> and fine-tuned for downstream sequence design,
+          gene-boundary detection, and codon optimization.
         </p>
         <!-- <div class="pub-figure">
-          <img src="ublm_graphical_abstract.png" alt="UBLM graphical abstract: pre-training on 277M E. coli DNA and protein sequences with a shared codon/amino-acid vocabulary, fine-tuned into UBLM-Gene-Finder and UBLM-Optimizer">
+          <img src="ublm_graphical_abstract.png" alt="UBLM graphical abstract: pre-training on 277M E. coli DNA and protein sequences with a shared codon/amino-acid vocabulary">
         </div> -->
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-tags">
+          <span class="tag status">Ongoing research</span>
+        </div>
+        <div class="pub-title">Multi-Scale Epigenomic &amp; Promoter Modeling for Gene-Expression Prediction</div>
+        <p class="pub-desc">
+          Investigating how <strong>Bi-Mamba, Cross-Attention, Transformer, GRU, and XGBoost</strong>
+          architectures integrate promoter DNA sequences with WGBS methylation and 6 histone ChIP-seq
+          signals across <strong>2 kb, 8 kb, and 40 kb receptive fields</strong> (processing large-scale
+          HDF5, BigWig, and BED datasets).
+        </p>
       </div>
     </div>
   </section>
 
   <section id="skills">
     <div class="wrap reveal">
-      <h2 class="eyebrow-h">skills</h2>
+      <h2 class="eyebrow-h">technical skills</h2>
       <div class="skill-grid">
         <div>
-          <div class="skill-cat-label"><i class="dot" style="background:var(--a)"></i>Languages</div>
+          <div class="skill-cat-label"><i class="dot" style="background:var(--a)"></i>Biological foundation models</div>
           <div class="pill-row">
-            <span class="pill">Python</span><span class="pill">JavaScript</span><span class="pill">SQL</span>
+            <span class="pill">T5 / BERT</span><span class="pill">ProtBERT</span><span class="pill">DNA-BERT</span>
+            <span class="pill">GPN</span><span class="pill">PlantCaduceus (Mamba)</span>
+            <span class="pill">Bi-Mamba</span><span class="pill">DNA &amp; Protein Modeling</span>
           </div>
         </div>
         <div>
-          <div class="skill-cat-label"><i class="dot" style="background:var(--t)"></i>ML &amp; deep learning</div>
+          <div class="skill-cat-label"><i class="dot" style="background:var(--t)"></i>Deep learning research</div>
           <div class="pill-row">
-            <span class="pill">PyTorch</span><span class="pill">Transformers / LLMs</span>
-            <span class="pill">LoRA</span><span class="pill">Neural Networks</span>
+            <span class="pill">PyTorch</span><span class="pill">Attention Modifications</span>
+            <span class="pill">Cross-Attention</span><span class="pill">Pretraining &amp; Fine-Tuning</span>
+            <span class="pill">CNN / LSTM / GRU / U-Net</span><span class="pill">XGBoost</span>
+            <span class="pill">Graph-Guided Multimodal Fusion</span><span class="pill">F1 / AUPRC Evaluation</span>
           </div>
         </div>
         <div>
-          <div class="skill-cat-label"><i class="dot" style="background:var(--c)"></i>Genomic &amp; bio models</div>
+          <div class="skill-cat-label"><i class="dot" style="background:var(--c)"></i>Training &amp; genomic data</div>
           <div class="pill-row">
-            <span class="pill">ProtBERT</span><span class="pill">DNA-BERT</span><span class="pill">GPN</span>
-            <span class="pill">PlantCaduceus / Mamba</span><span class="pill">T5</span><span class="pill">BERT</span>
-            <span class="pill">Biopython</span>
+            <span class="pill">Python</span><span class="pill">HDF5</span><span class="pill">BigWig</span>
+            <span class="pill">BED</span><span class="pill">Multi-GPU DDP</span>
+            <span class="pill">Hugging Face Accelerate</span><span class="pill">HPC / PBS</span>
+            <span class="pill">Large-Scale ETL</span><span class="pill">Biopython</span>
+            <span class="pill">NumPy / Pandas</span>
           </div>
         </div>
         <div>
-          <div class="skill-cat-label"><i class="dot" style="background:var(--g)"></i>Infra &amp; tools</div>
+          <div class="skill-cat-label"><i class="dot" style="background:var(--g)"></i>Engineering &amp; cloud</div>
           <div class="pill-row">
-            <span class="pill">AWS Lambda</span><span class="pill">EC2</span><span class="pill">RDS / PostgreSQL</span>
-            <span class="pill">LangChain</span><span class="pill">Chroma</span><span class="pill">Pydantic AI</span>
-            <span class="pill">RAG</span><span class="pill">Express.js</span>
+            <span class="pill">AWS (Lambda, EC2, RDS)</span><span class="pill">PostgreSQL</span>
+            <span class="pill">Git / GitHub</span><span class="pill">GitHub Actions</span>
+            <span class="pill">Production Backend Systems</span>
           </div>
         </div>
       </div>
@@ -640,18 +665,19 @@ optimization applications that outperform existing tools. Manuscript submitted.
     <div class="wrap reveal">
       <h2 class="eyebrow-h">education</h2>
       <div class="edu-item">
-        <div class="role-date mono">Jan 2025 —<br>Dec 2026 (exp.)</div>
+        <div class="role-date mono">Jan 2025 —<br>May 2027 (exp.)</div>
         <div>
           <div class="edu-degree">Master of Science in Computer Science</div>
-          <div class="edu-org">North Dakota State University, Fargo, ND</div>
+          <div class="edu-org">North Dakota State University (NDSU), Fargo, ND</div>
+          <div class="edu-honor">All coursework completed Dec 2026 &nbsp;·&nbsp; Only 3 thesis defense credits remaining in Spring 2027</div>
         </div>
       </div>
       <div class="edu-item">
-        <div class="role-date mono">— May 2022</div>
+        <div class="role-date mono">May 2022</div>
         <div>
           <div class="edu-degree">Bachelor of Science in Software Engineering</div>
-          <div class="edu-org">Islamic University of Technology, Dhaka, Bangladesh</div>
-          <div class="edu-honor">Graduated with First Class with Honors</div>
+          <div class="edu-org">Islamic University of Technology (IUT), Dhaka, Bangladesh</div>
+          <div class="edu-honor">First Class with Honors</div>
         </div>
       </div>
     </div>
@@ -661,7 +687,7 @@ optimization applications that outperform existing tools. Manuscript submitted.
 <footer id="contact">
   <div class="wrap reveal">
     <h2 class="eyebrow-h">contact</h2>
-    <p class="contact-cta">Open to computational biology, bioinformatics, and applied ML roles — let's talk.</p>
+    <p class="contact-cta">Open to computational biology, bioinformatics, and ML roles — let's talk.</p>
     <div class="footer-links">
       <a href="mailto:muhammad.tahmid.islam@gmail.com">muhammad.tahmid.islam@gmail.com</a>
       <a href="tel:+17013061338">+1 701 306 1338</a>
@@ -697,12 +723,17 @@ optimization applications that outperform existing tools. Manuscript submitted.
     document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
   }
 
-  // swap in the real award certificate once the user adds certificate.jpg
+  // swap in the real award certificate (handles both cached and uncached loads)
   (function(){
     const img = document.getElementById('certImg');
     const placeholder = document.getElementById('certPlaceholder');
     if(!img) return;
-    img.addEventListener('load', () => { img.style.display = 'block'; placeholder.style.display = 'none'; });
+    const showImg = () => { img.style.display = 'block'; placeholder.style.display = 'none'; };
+    if(img.complete && img.naturalWidth > 0){
+      showImg();
+    } else {
+      img.addEventListener('load', showImg);
+    }
   })();
 
   // generate a sequencing-trace signature graphic
